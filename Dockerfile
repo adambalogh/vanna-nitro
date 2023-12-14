@@ -74,7 +74,7 @@ COPY ./contracts/src/precompiles/ ./contracts/src/precompiles/
 COPY ./contracts/package.json ./contracts/yarn.lock ./contracts/
 COPY ./solgen/gen.go ./solgen/
 COPY ./fastcache ./fastcache
-COPY ./go-ethereum ./go-ethereum
+COPY ./vanna-arb-geth ./vanna-arb-geth
 COPY --from=brotli-wasm-export / target/
 COPY --from=contracts-builder workspace/contracts/build/contracts/src/precompiles/ contracts/build/contracts/src/precompiles/
 COPY --from=contracts-builder workspace/contracts/node_modules/@offchainlabs/upgrade-executor/build/contracts/src/UpgradeExecutor.sol/UpgradeExecutor.json contracts/
@@ -176,7 +176,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get install -y wabt
 COPY go.mod go.sum ./
-COPY go-ethereum/go.mod go-ethereum/go.sum go-ethereum/
+COPY vanna-arb-geth/go.mod vanna-arb-geth/go.sum vanna-arb-geth/
 COPY fastcache/go.mod fastcache/go.sum fastcache/
 RUN go mod download
 COPY . ./
