@@ -1,7 +1,6 @@
 package precompiles
 
 import (
-	// #nosec G501
 	"crypto/md5"
 	"encoding/hex"
 	"strconv"
@@ -129,7 +128,6 @@ func HashInferenceTX(arr []string, separator string) string {
 		hashString += arr[i] + separator
 	}
 
-	// #nosec G401
 	hasher := md5.New()
 	hasher.Write([]byte(hashString))
 	return hex.EncodeToString(hasher.Sum(nil))
