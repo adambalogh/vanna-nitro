@@ -12,7 +12,7 @@ type ArbMathStats struct {
 	Address addr // 0x11b
 }
 
-func (con *ArbMathStats) stdDev(c ctx, evm mech, input []int32, decimals uint32) (huge, error) {
+func (con *ArbMathStats) stdDev(c ctx, evm mech, input []int32, decimals uint8) (huge, error) {
 	floatInput := make([]float64, len(input))
 	for i, num := range input {
 		floatInput[i] = float64(num)
