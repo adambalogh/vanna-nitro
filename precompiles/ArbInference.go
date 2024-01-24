@@ -127,7 +127,6 @@ func HashInferenceTX(arr []string, separator string) string {
 	for i := 0; i < len(arr); i++ {
 		hashString += arr[i] + separator
 	}
-
 	hasher := md5.New()
 	hasher.Write([]byte(hashString))
 	return hex.EncodeToString(hasher.Sum(nil))
